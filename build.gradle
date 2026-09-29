@@ -31,3 +31,30 @@ application { //Allows  ./gradlew run --args=path-to-test-data
     mainClass = 'edu.odu.cs.MostCommonWords'
 }
 
+task copyHtml(type: Copy){
+    from 'src/main/html'
+    into 'build/reports'
+
+}
+task copyDocs(type: Copy, dependsOn: 'javadoc'){
+    from 'build/docs'
+    into 'build/reports'
+}
+task reports(dependsOn: ['build', 'copyHtml', 'copyDocs']){
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    testImplementation 'org.hamcrest:hamcrest-library:2.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+gitPublishCopy.dependsOn reports
+gitPublish{
+    repoUri = 'git@github.com:ODU-CS351-F26/CS351--exercise-documentation--queenjt.git'
+    branch = 'gh-pages'
+    contents{ 
+        from 'build/reports'
+    }
+}
+    task deployReports(dependsOn: 'gitPublishPush'){}

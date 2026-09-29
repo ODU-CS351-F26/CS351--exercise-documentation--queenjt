@@ -1,6 +1,6 @@
 # Project Reports
 
-Your Name
+Juanita Thomas
 
-* [Tests](./reports/tests/test/)
-* [JavaDoc](./reports/javadoc/)
+* [Tests](./tests/test/)
+* [JavaDoc](./javadoc/)
