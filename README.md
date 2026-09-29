@@ -1,4 +1,4 @@
-* [Reports](https://odu-cs351-f26.github.io/CS351--exercise-documentation--queenjt/)
+* [Reports] (https://odu-cs351-f26.github.io/CS351--exercise-documentation--queenjt/)
 
 # WordCounter
 
